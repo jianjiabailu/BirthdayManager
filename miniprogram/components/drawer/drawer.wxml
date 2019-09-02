@@ -1,0 +1,25 @@
+<!--components/drawer/drawer.wxml-->
+<view class="drawer {{istrue ? 'drawer_show' : ''}}">
+  <view class="shade" bindtap="closeDrawer"></view>
+  <view class="content" catchtap="stopEvent">
+    <view class="drawer_hd flex-around">
+      <view class="">
+        <view bindtap="closeDrawer" class="weui-icon-btn weui-icon-btn_close">关闭</view>
+      </view>
+      <view class="weui-half-screen-dialog__hd__main">
+        <text class="weui-half-screen-dialog__title">标题</text>
+        <text class="weui-half-screen-dialog__subtitle">标题</text>
+      </view>
+      <view class="weui-half-screen-dialog__hd__side">
+        <view class="weui-icon-btn weui-icon-btn_more">更多</view>
+      </view>
+    </view>
+    <view class="drawer_bd">
+      <slot></slot>
+    </view>
+    <view class="drawer_fd flex-between">
+      <button type="primary" class="weui-btn">辅助操作</button>
+      <button type="primary" class="weui-btn">主操作</button>
+    </view>
+  </view>
+</view>

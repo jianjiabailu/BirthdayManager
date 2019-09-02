@@ -1,0 +1,14 @@
+<!--components/dialog/dialog.wxml-->
+<view class="dialog-view" wx:if="{{status}}">
+  <view class="fill-top" bindtap="close"></view>
+  <view class="content-box">
+    <view class="box-hd">
+      <view>标题</view>
+      <view bindtap="close"><image class="icon-sm" src="../../images/icon_delete.png"></image> </view>
+    </view>
+    <view class="box-bd">
+      <slot></slot>
+    </view>
+  </view>
+  <view class="fill-botton" bindtap="close"></view>
+</view>

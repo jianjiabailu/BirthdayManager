@@ -1,0 +1,14 @@
+/* miniprogram/pages/selectAvatar/selectAvatar.wxss */
+
+.avatar-item{
+  width: 25%;
+  text-align: center;
+  padding: .5rem 0;
+}
+.avatar-item:not(.none){
+  border: 1px dotted #c5c3c3;
+}
+.avatar-item image{
+  width: 4rem;
+  height: 4rem;
+}

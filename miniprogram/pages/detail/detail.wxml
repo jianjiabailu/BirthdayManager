@@ -1,0 +1,95 @@
+<view class='container'>
+  <!-- 头像和名字 -->
+  <view class="header flex-row bewteen">
+    <view class="avatar">
+      <image bindtap="selectAvatar" src="{{detailInfo.avatarUrl || '../../images/user-unlogin.png'}}"></image>
+    </view>
+    <!-- 基本信息 -->
+    <view class="flex flex-col around">
+      <view class="flex-row">
+        <!-- 姓名 -->
+        <view class="name">{{detailInfo.name}}</view>
+        <!-- 性别 -->
+        <image class="icon-sm" src="{{item.gender == 0 ? '../../images/male.png' : '../../images/female.png'}}"></image>
+      </view>
+      <!-- 生日日期 -->
+      <view class="birthday">
+        <text>{{detailInfo.birthday}}</text>
+        <text class="dot">></text>
+        <text class="relation">{{detailInfo.zodiac_cn}}</text>
+        <text class="dot">></text>
+        <text class="relation">{{detailInfo.zodiac_en}}</text>
+      </view>
+    </view>
+    <!-- 删除或修改资料 -->
+    <view class="flex-col around">
+      <image class="icon-md" bindtap="deleteInfo" src="../../images/icon_delete.png"></image>
+    </view>
+  </view>
+  <!-- 下次生日时间 -->
+  <view class="card">
+    <view>距{{detailInfo.age}}岁生日还有 <text class="days">{{detailInfo.days}}</text> 天</view>
+    <view class="lunisolar">
+      <text>下次生日：</text>
+      <text wx:if="{{lunar}}">{{detailInfo.next_birth[0] + '年' + detailInfo.birthday}}</text>
+      <text wx:else >{{detailInfo.next_birth_solar}}</text>
+      <text class="lunar" bindtap="lunisolar">{{lunar?'农历':'公历'}}</text>
+    </view>
+  </view>
+  <!-- 自定义组件：列表-基础资料 -->
+  <ly-list title="基本资料">
+    <!-- 输入姓名 -->
+    <view class="form-item" bindtap="alterInfo" data-key="name">
+      <text class="item-tit">姓名*</text>
+      <text class="item-input">{{detailInfo.name}}</text>
+      <image class="icon-sm" src="../../images/icon_down.png"></image>
+    </view>
+    <!-- 选择性别 -->
+    <view class="form-item" bindtap="alterInfo" data-key="gender">
+      <text class="item-tit">性别*</text>
+      <text class="item-input">{{detailInfo.gender == 0 ? '女' : '男'}}</text>
+      <image class="icon-sm" src="../../images/icon_down.png"></image>
+    </view>
+    <!-- 输入手机号 -->
+    <view class="form-item" bindtap="alterInfo" data-key="phone">
+      <text class="item-tit">手机号</text>
+      <text class="item-input">{{detailInfo.phone}}</text>
+      <image class="icon-sm" src="../../images/icon_down.png"></image>
+    </view>
+    <!-- 设置生日 -->
+    <view class="form-item" bindtap="alterInfo" data-key="birthdate">
+      <text class="item-tit">生日*</text>
+      <text class="item-input">{{detailInfo.birthdate[0]+'年'+detailInfo.birthdate[1]+'月'+detailInfo.birthdate[2]+'日'}}</text>
+      <image class="icon-sm" src="../../images/icon_down.png"></image>
+    </view>
+    <block wx:if="{{identity == 'friend'}}">
+      <!-- 关系 -->
+      <view class="form-item" bindtap="alterInfo" data-key="relation">
+        <text class="item-tit">关系</text>
+        <text class="item-input">{{detailInfo.relation}}</text>
+        <image class="icon-sm" src="../../images/icon_down.png"></image>
+      </view>
+    </block>
+    <block wx:if="{{identity == 'mine'}}">
+      <!-- 情感状况 -->
+      <!-- <view class="form-item" bindtap="alterInfo" data-key="emotion">
+        <text class="item-tit">情感状况</text>
+        <text class="item-input">{{detailInfo.emotion}}</text>
+        <image class="icon-sm" src="../../images/icon_down.png"></image>
+      </view> -->
+      <!-- 家乡 -->
+      <view class="form-item" bindtap="alterInfo" data-key="native">
+        <text class="item-tit">家乡</text>
+        <text class="item-input">{{detailInfo.native[0]+detailInfo.native[1]+detailInfo.native[2]}}</text>
+        <image class="icon-sm" src="../../images/icon_down.png"></image>
+      </view>
+      <!-- 现居地 -->
+      <view class="form-item" bindtap="alterInfo" data-key="address">
+        <text class="item-tit">现居地</text>
+        <text class="item-input">{{detailInfo.address}}</text>
+        <image class="icon-sm" src="../../images/icon_down.png"></image>
+      </view>
+    </block>
+  </ly-list>
+
+</view>

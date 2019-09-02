@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "好友详情",
+  "usingComponents": {
+    "ly-list": "../../components/list/list"
+  }
+}

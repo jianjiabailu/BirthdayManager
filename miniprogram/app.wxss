@@ -1,0 +1,99 @@
+/**app.wxss**/
+page {
+  background: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-size: 16px;
+}
+
+view{
+  box-sizing: border-box;
+}
+.container {
+  box-sizing: border-box;
+} 
+
+/* 用户头像 */
+.avatar>button,.avatar>image{
+  border-radius: 50%;
+  width: 4rem; height: 4rem;
+  background-size: 100% 100%;
+  box-shadow: 1px 2px 3px 1px rgba(0, 0, 0, .2)
+}
+
+/* 小标题 */
+.tit{
+  color: #666666;
+  font-size: 14px;
+  padding: .5rem 0;
+}
+
+/* 图标 */
+.icon-sm {
+  width: 1rem;
+  height: 1rem;
+}
+.icon-md {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* 分割线 */
+.line{
+  width: 100%;
+  border-bottom: 1px solid #f6f6f6;
+}
+.line-rem{
+  width: 100%;
+  border-bottom: 1rem solid #f6f6f6;
+}
+
+/* 列表项 */
+.form-item{
+  width: 100%; 
+  font-size: 14px;
+  padding: .8rem 0;
+  display: flex;
+  align-items: center;
+}
+.item-tit{
+  width: 4rem;
+  color: #333333;
+}
+.item-input{
+  flex: 1;
+  color: #666666;
+  text-align: end;
+}
+.item-input .radio{
+  margin-left: .5rem;
+}
+.item-input radio{
+  transform:scale(0.8);
+}
+
+
+/*================= flex布局 =====================*/
+.flex-row{
+  display: flex;
+  flex-direction: row;
+}
+.flex-row-r{
+  display: flex;
+  flex-direction: row-reverse;
+}
+.flex-col{
+  display: flex;
+  flex-direction: column;
+}
+.flex-col-r{
+  display: flex;
+  flex-direction: column-reverse;
+}
+.around{ justify-content: space-around; }
+.between{ justify-content: space-between; }
+.center{ justify-content: center; }
+.middle{ align-items: center; }
+.flex{ flex: 1; }
+.wrap{ flex-wrap: wrap;}

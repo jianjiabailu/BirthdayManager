@@ -1,0 +1,37 @@
+/* components/dialog/dialog.wxss */
+.dialog-view{
+  z-index: 9;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 0; top: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, .2);
+}
+.fill-top{
+  flex: 1;
+}
+.fill-botton{
+  flex: 2;
+}
+.content-box{
+  width: 80%;
+  min-height: 100px;
+  margin: 0 auto;
+  padding: .5rem 1rem;
+  border-radius: 4px;
+  background-color: white;
+}
+
+
+.box-hd{
+  display: flex;
+  justify-content: space-between;
+}
+
+/* 图标 */
+.icon-sm {
+  width: 1rem;
+  height: 1rem;
+}

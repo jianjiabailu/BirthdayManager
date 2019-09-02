@@ -1,0 +1,18 @@
+<!--miniprogram/pages/selectAvatar/selectAvatar.wxml-->
+<view>
+  <view class="avatar-list flex-row wrap">
+    <!-- 上传头像 -->
+    <view class="avatar-item none" bindtap="chooseImage">
+      <image src="../../images/upload.png" mode="aspectFit"></image>
+    </view>
+    
+    <!-- 系统头像 -->
+    <block wx:for="{{system_avatar}}" wx:key="{{item}}">
+      <view class="avatar-item" bindtap="selectImage" data-path="{{item.cloudPath}}">
+        <image src="{{item.cloudPath}}" mode="aspectFit"></image>
+      </view>
+    </block>
+    
+  </view>
+  
+</view>

@@ -1,0 +1,71 @@
+<!--miniprogram/pages/mine/mine.wxml-->
+<view class="container">
+  <!-- 个人主页背景 -->
+  <view class="header">
+    <image class="camera" wx:if="{{uploadding}}" bindtap="uploadFile" src="../../images/upload_file.png"></image>
+    <image class="camera" wx:else bindtap="chooseImage" src="../../images/camera.png"></image>
+    <image class="background" src="{{mineInfo.background}}"></image>
+  </view>
+  <!-- 用户头像和名称 -->
+  <view class="userinfo flex-row">
+    <view class="zodiac flex">
+      <image src="{{mineInfo.zodiac_cn_img}}"></image>
+      <view>{{mineInfo.zodiac_cn}}</view>
+    </view>
+    <view class="">
+      <image bindtap="toDetail" class="avatar" src="{{mineInfo.avatarUrl}}"></image>
+      <view class="nickName"><image class="icon-sm" src="{{mineInfo.gender == 0 ? female : male}}"></image>{{mineInfo.name}}</view>
+      <view class="birthday">{{mineInfo.birthday[1]+mineInfo.birthday[2]}}</view>
+    </view>
+    <view class="zodiac flex">
+      <image src="{{mineInfo.zodiac_en_img}}"></image>
+      <view>{{mineInfo.zodiac_en}}</view>
+    </view>
+  </view>
+  
+  <!-- 下次生日时间 -->
+  <view class="birthCard">
+    <view class="card">
+      <view>距{{mineInfo.nextBirth.age}}岁生日还有 <text class="days">{{mineInfo.nextBirth.days}}</text> 天</view>
+      <view class="lunisolar">
+        <text>下次生日：</text>
+        <text wx:if="{{lunar}}">{{mineInfo.nextBirth.birthdate[0] + '年' + mineInfo.birthday[1] + mineInfo.birthday[2]}}</text>
+        <text wx:else >{{mineInfo.nextBirth.birthdate[0] + '年' + mineInfo.nextBirth.birthdate[1] + '月' + mineInfo.nextBirth.birthdate[2] + '日'}}</text>
+        <text class="lunar" bindtap="lunisolar">{{lunar?'农历':'公历'}}</text>
+      </view>
+    </view>
+  </view>
+  <!-- 分割线 -->
+  <view class="line-rem"></view>
+  <!-- 个性签名 -->
+  <view class="signature">{{mineInfo.signature}}</view>
+  <!-- 分割线 -->
+  <view class="line-rem"></view>
+  <!-- 个人信息墙 -->
+  <view class="infoList">
+    <!-- 个人信息 -->
+    <view class="tit">个人信息</view>
+    <view class="form-item">
+      <text>出生日</text>
+      <text class="item-input">{{mineInfo.birthday[0]+mineInfo.birthday[1]+mineInfo.birthday[2]}}</text>
+    </view>
+    <view class="form-item">
+      <text>阳历</text>
+      <text class="item-input">{{mineInfo.solar[0] + '年' + mineInfo.solar[1] + '月'+mineInfo.solar[2] + '日'}}</text>
+    </view>
+    <!-- <view class="form-item">
+      <text>情感状况</text>
+      <text class="item-input">{{mineInfo.emotion}}</text>
+    </view> -->
+    <view class="form-item">
+      <text>家乡</text>
+      <text class="item-input">{{mineInfo.native[0] + mineInfo.native[1] + mineInfo.native[2]}}</text>
+    </view>
+    <view class="form-item">
+      <text>现居地</text>
+      <text class="item-input">{{mineInfo.address}}</text>
+    </view>
+  </view>
+
+
+</view>

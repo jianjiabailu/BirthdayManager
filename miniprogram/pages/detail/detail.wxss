@@ -1,0 +1,61 @@
+/* miniprogram/pages/detail/detail.wxss */
+
+.header{
+  padding: 1rem;
+}
+
+.avatar{
+  margin-right: .5rem;
+}
+.name{
+  font-size: 16px;
+}
+.birthday{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 14px;
+}
+.birthday text.dot{
+  width: 1rem;
+  height: 1rem;
+  transform: scale(.4);
+  display: inline-block;
+  overflow: hidden;
+  border-radius: 50%;
+  background-color: #000000;
+}
+.card{
+  font-size: 14px;
+  padding: .5rem 1rem;
+  margin: 0 1rem;
+  border-radius: 2px;
+  background-color: pink;
+  background-image: url(http://api.sanhulaojie.cn/public/images/bg-2.gif);
+}
+.card > view{
+  margin: 1rem 0;
+}
+.card .days{
+  font-size: 21px;
+}
+.card .lunar{
+  font-size: 12px;
+  padding: 0 .2rem;
+  margin-left: .5rem;
+  border-radius: 2px;
+  border: 1px solid #fcfcfcfc;
+}
+
+.lunisolar>text{
+  display: inline-block;
+}
+
+.form-item{
+  border-bottom: 1px solid #f6f6f6; 
+}
+.form-item .icon-sm{
+  width: 0.8rem;
+  margin-left: .5rem;
+  transform: rotate(-90deg)
+}

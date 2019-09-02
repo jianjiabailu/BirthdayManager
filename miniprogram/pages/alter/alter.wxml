@@ -1,0 +1,21 @@
+<!--miniprogram/pages/alter/alter.wxml-->
+<view class="container">
+  <view class="input-box flex-row middle">
+    <block wx:if="{{key == 'gender'}}">
+      <input class="input-item" bindinput="setValue" value="{{val == 0 ? '女' : '男'}}" disabled="true"></input>
+      <switch checked="{{val == 0}}" bindchange="switchGender"/>
+    </block>
+    <block wx:elif="{{key == 'birthdate'}}">
+      <picker class="input-item flex-col center" mode="multiSelector" bindchange="setBirthdate" bindcolumnchange="selectBirthdate" value="{{multiIndex}}" range="{{multiArray_cn}}">
+        <input disabled="true" value="{{birthdate_cn}}" placeholder="点击设置生日"></input>
+      </picker>
+      <image class="icon-sm" src="../../images/icon_down.png"></image>
+    </block>
+    <block wx:else>
+      <input class="input-item" bindinput="setValue" value="{{val}}"></input>
+    </block>
+  </view>
+  <view class="btn-group">
+    <view class="btn-item" bindtap="alter">提交</view>
+  </view>
+</view>

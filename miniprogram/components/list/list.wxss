@@ -1,0 +1,23 @@
+/* components/list/list.wxss */
+
+.list{
+  padding: 0 1rem;
+}
+.tit{
+  font-size: 14px;
+  padding: .5rem 0;
+  color: #666666;
+  display: flex;
+  justify-content: space-between;
+}
+.tit image{
+  width: 1rem;
+  height: 1rem;
+}
+.cont{
+  transition: all .3s;
+}
+.cont.hide{
+  display: none;
+  transform: translateY(100%);
+}

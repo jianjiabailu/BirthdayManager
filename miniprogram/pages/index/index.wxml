@@ -1,0 +1,30 @@
+<!--index.wxml-->
+<view class="container flex-col">
+  <!-- 快速查询 -->
+  <view class="search-box">
+    <input bindinput="quickSearch" placeholder="请输入姓名查找"></input>
+    <view class="create" bindtap="create">添加</view>
+  </view>
+  <!-- 生日列表 -->
+  <view class='list flex'>
+    <block wx:for="{{friendsList}}" wx:key="name">
+      <view class='item' bindtap='detail' data-item="{{item}}">
+        <!-- 头像 -->
+        <view class='via'>
+          <image src="{{item.avatarUrl ? item.avatarUrl : '../../images/user-unlogin.png'}}" mode="aspectFit"></image>
+        </view>
+        <!-- 姓名/生日 -->
+        <view class='bd'>
+          <view>{{item.name + ' '}}<image class="icon-sm" src="{{item.gender == 0 ? female : male}}"></image></view>
+          <view>{{item.birthday}}</view>
+        </view>
+        <!-- 天数/年龄 -->
+        <view class='fd'>
+          <view>{{item.days}}天</view>
+          <view>距{{item.age}}岁生日</view>
+        </view>
+      </view>
+    </block>
+  </view>
+  
+</view>

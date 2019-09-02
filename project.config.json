@@ -1,0 +1,76 @@
+{
+	"miniprogramRoot": "miniprogram/",
+	"cloudfunctionRoot": "cloudfunctions/",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": false,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
+	},
+	"appid": "wx5be391149e5e73da",
+	"projectname": "coolish-memory",
+	"libVersion": "2.8.0",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"cloudfunctionTemplateRoot": "cloudfunctionTemplate",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": 3,
+			"list": [
+				{
+					"id": 0,
+					"name": "添加生日",
+					"pathName": "pages/register/register",
+					"query": "action=newFriend",
+					"scene": null
+				},
+				{
+					"id": 1,
+					"name": "注册",
+					"pathName": "pages/register/register",
+					"query": "action=register",
+					"scene": null
+				},
+				{
+					"id": 2,
+					"name": "好友详情",
+					"pathName": "pages/detail/detail",
+					"query": "id=90b4093b5d60e8c4083da75f7b836008",
+					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "修改资料",
+					"pathName": "pages/alter/alter",
+					"query": "params={\"id\":\"5d262bd45d5bc58804c465f3566e1014\",\"key\":\"birthdate\",\"val\":[\"1949\",\"3\",\"1\"]}",
+					"scene": null
+				}
+			]
+		}
+	}
+}

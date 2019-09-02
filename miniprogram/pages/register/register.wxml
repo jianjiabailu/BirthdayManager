@@ -1,0 +1,81 @@
+<!--miniprogram/pages/register/register.wxml-->
+<view class="container">
+  <!-- 头部 -->
+  <view class="header">
+    <!-- 设置头像 -->
+    <view class="avatar">
+      <image bindtap="selectAvatar" src="{{userInfo.avatar || '../../images/user-unlogin.png'}}"></image>
+    </view>
+    <view class="tit">点击更换头像</view>
+  </view>
+
+  <!-- 自定义组件：列表-基础资料 -->
+  <ly-list title="基本资料">
+    <!-- 输入姓名 -->
+    <view class="form-item">
+      <text class="item-tit">姓名*</text>
+      <input class="item-input" bindinput="setName" placeholder="请输入姓名"></input>
+    </view>
+    <!-- 选择性别 -->
+    <view class="form-item">
+      <text class="item-tit">性别*</text>
+      <radio-group class="item-input" bindchange="setSex">
+        <label class="radio">
+          <radio value="1" checked="{{userInfo.gender == 1}}"/>男
+        </label>
+        <label class="radio">
+          <radio value="0" checked="{{userInfo.gender == 0}}"/>女
+        </label>
+      </radio-group>
+    </view>
+    <!-- 输入手机号 -->
+    <view class="form-item">
+      <text class="item-tit">手机号</text>
+      <input class="item-input" bindinput="setPhone" placeholder="请输入手机号"></input>
+    </view>
+    <!-- 设置生日 -->
+    <view class="form-item">
+      <text class="item-tit">生日*</text>
+      <picker class="item-input" mode="multiSelector" bindchange="setBirthdate" bindcolumnchange="selectBirthdate" value="{{multiIndex}}" range="{{multiArray_cn}}">
+        <input disabled="true" value="{{birthdate_cn}}" placeholder="点击设置生日"></input>
+      </picker>
+    </view>
+    <!-- 描述你们的关系 -->
+    <view class="form-item" wx:if="{{action=='newFriend'}}">
+      <text class="item-tit">关系</text>
+      <input class="item-input" bindchange="setRelation" placeholder="描述你们的关系"></input>
+    </view>
+  </ly-list>
+  <view class="line-rem"></view>
+  <!-- 自定义组件：列表-其他信息 -->
+  <ly-list title="个人信息" extensible="{{true}}" wx:if="{{action=='register'}}">
+    <!-- 个性签名 -->
+    <view class="form-item">
+      <text class="item-tit">个性签名</text>
+      <input class="item-input" bindinput="setSign" placeholder="介绍一下自己"></input>
+    </view>
+    <!-- 感情状况 -->
+    <view class="form-item">
+      <text class="item-tit">感情状况</text>
+      <input class="item-input" bindinput="setEmotion" placeholder="还单身吗"></input>
+    </view>
+    <!-- 家乡 -->
+    <view class="form-item">
+      <text class="item-tit">家乡</text>
+      <picker class="item-input" mode="region" bindchange="bindNative" value="{{region}}">
+        <view>{{region[0]}}-{{region[1]}}-{{region[2]}}</view>
+      </picker>
+    </view>
+    <!-- 现居地 -->
+    <view class="form-item none">
+      <text class="item-tit">现居地</text>
+      <input class="item-input" bindinput="setAddress" placeholder="现居何处"></input>
+    </view>
+  </ly-list>
+
+  <!-- 提交按钮 -->
+  <view class="btn-group">
+    <view class="btn-item" bindtap="submit">保存</view>
+  </view>
+
+</view>

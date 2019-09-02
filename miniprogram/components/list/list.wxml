@@ -1,0 +1,10 @@
+<!--components/list/list.wxml-->
+<view class="list">
+  <view class="tit" wx:if="{{title}}">
+    <text>{{title}}</text>
+    <image wx:if="{{extensible}}" bindtap="changeStatus" src="../../images/{{icon}}"></image>
+  </view>
+  <view class="cont {{status?'hide':''}}">
+    <slot></slot>
+  </view>
+</view>
